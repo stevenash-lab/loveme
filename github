@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Me?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <img id="image" src="IMG_20260706_093134.jpg" alt="Cute Bear">
+
+    <h1 id="question">Do you love me?</h1>
+
+    <div class="buttons">
+        <button id="yesBtn">Yes ❤️</button>
+        <button id="noBtn">No 💔</button>
+    </div>
+
+    <h2 id="result"></h2>
+</div>
+
+<script src="script.js"></script>
+
+body{
+    margin:0;
+    background:#ffdbe7;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    text-align:center;
+    position:relative;
+    
+}
+
+img{
+    width:180px;
+    border-radius:15px;
+}
+
+button{
+    padding:12px 25px;
+    margin:10px;
+    font-size:18px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+#yesBtn{
+    background:#ff4d79;
+    color:white;
+}
+
+#noBtn{
+    background:#777;
+    color:white;
+    position:relative;
+}
+
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const question = document.getElementById("question");
+const result = document.getElementById("result");
+const image = document.getElementById("image");
+
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * 300 - 150;
+    const y = Math.random() * 300 - 150;
+
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+yesBtn.addEventListener("click", () => {
+    question.innerHTML = "I knew it! 😍";
+    result.innerHTML = "❤️ Thank you! ❤️";
+
+    image.src = "IMG_20260706_093134.jpg";
+
+    document.querySelector(".buttons").style.display = "none";
+});
+
+</body>
+</html>
+
